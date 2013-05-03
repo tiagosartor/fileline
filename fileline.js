@@ -1,5 +1,4 @@
-/*jslint browser: true */
-/*globals console */
+/*globals window, document */
 
 var fileline = window.fileline || {};
 
@@ -30,9 +29,6 @@ fileline = {
 
 		// Run this if the loading was okay
 		file.onload = function (a) {
-			if (console) {
-				console.log('Loaded: ' + ((a.target.src !== undefined) ? a.target.src : a.target.href));
-			}
 			switch (i) {
 			// If it's the last script, then move on
 			case t.urlsLen:
@@ -48,9 +44,6 @@ fileline = {
 
 		// Run this if there's an error
 		file.onerror = function (a) {
-			if (console) {
-				console.log('Error: ' + ((a.target.src !== undefined) ? a.target.src : a.target.href));
-			}
 			if (t.error) {
 				t.error();
 			}
